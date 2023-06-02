@@ -23,6 +23,4 @@ Example 2: if you want to stop the AKS cluster everyday at 17:00 Monday through 
 
 
 # Considerations
-The script stops or starts all AKS clusters in a subscription. if you need to stop/start specific AKS clusters, recommendation is to adopt labels, for your AKS cluster, so the code will use two parameters as input for its IF statement.
- **PowerState**
- **Tags**
+The script stops or starts all AKS clusters in a subscription. if you need to stop/start specific AKS clusters, recommendation is to adopt labels, for your AKS cluster, so the code will use two parameters as input for its IF statement. **PowerState** and **Tags**
