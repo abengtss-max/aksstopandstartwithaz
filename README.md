@@ -10,16 +10,17 @@ the powerState indicates which state the AKS cluster is currently in. There are 
 
 Example 1: if we want to start the AKS cluster everyday at 08:00 Monday through friday.
 
-**Bash**
-0 17 * * 1-5 /aks_start.sh
+```bash
+0 8 * * 1-5 /aks_start.sh
 crontab -e
-```
+```  
+
 Example 2: if you want to stop the AKS cluster everyday at 17:00 Monday through friday.
 
-**Bash**
+```bash
 0 17 * * 1-5 /aks_stop.sh
-crontab -e
-```
+```  
+
 
 # Considerations
 The script stops or starts all AKS clusters in a subscription. if you need to stop/start specific AKS clusters, recommendation is to adopt labels, for your AKS cluster, so the code will use two parameters as input for its IF statement.
