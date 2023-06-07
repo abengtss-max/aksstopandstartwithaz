@@ -1,10 +1,14 @@
 # AKS start and stop with Azure CLI
 This is a **basic** bash script for starting and stopping AKS clusters within a subscription.
-currently the scripts only look at **powerState** to either start or stop the AKS cluster. 
+currently the scripts only looks at **powerState** and **Tags** set on the AKS service to either start or stop the AKS cluster. 
 the powerState indicates which state the AKS cluster is currently in. There are two main states:
 
 **Running**
 **Stopped**
+
+The bash script also looks at a tag on AKS resource level, containing the tag value **Hours**.
+If an AKS cluster do not have the tag value set to Hours on AKS service level then, that particular AKS cluster will not be stopped or started.
+
 
 # Configure and Create a cronjob
 
@@ -23,4 +27,11 @@ Example 2: if you want to stop the AKS cluster everyday at 17:00 Monday through 
 
 
 # Considerations
-The script stops or starts all AKS clusters in a subscription. if you need to stop/start specific AKS clusters, recommendation is to adopt labels, for your AKS cluster, so the code will use two parameters as input for its IF statement. **PowerState** and **Tags**
+The script stops or starts all AKS clusters in a subscription. Before running the code from you Linux machine ensure you have the right subscription configured, locally on your machine, recommendation is to ensure targeted subscription is default, to avoid any unexpected shutdowns of AKS clusters.
+
+example:
+```bash
+az login
+az account list -o table
+az account set --subscription <subscription-id>
+```  
