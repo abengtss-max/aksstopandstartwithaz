@@ -9,6 +9,18 @@ the powerState indicates which state the AKS cluster is currently in. There are 
 The bash script also looks at a tag on AKS resource level, containing the tag value **Hours**.
 If an AKS cluster do not have the tag value set to Hours on AKS service level then, that particular AKS cluster will not be stopped or started.
 
+# Prerequisites
+
+The machine needs to have Azure CLI installed more information on how to install Azure CLI can be found here:https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+
+Before running the script ensure you machine is configured with the correct subscription example steps below:
+
+```bash
+az login
+az account list -o table
+az account set --subscription <subscription-id>
+```  
+
 
 # Configure and Create a cronjob
 
@@ -29,9 +41,4 @@ Example 2: if you want to stop the AKS cluster everyday at 17:00 Monday through 
 # Considerations
 The script stops or starts all AKS clusters in a subscription. Before running the code from you Linux machine ensure you have the right subscription configured, locally on your machine, recommendation is to ensure targeted subscription is default, to avoid any unexpected shutdowns of AKS clusters.
 
-example:
-```bash
-az login
-az account list -o table
-az account set --subscription <subscription-id>
-```  
+
